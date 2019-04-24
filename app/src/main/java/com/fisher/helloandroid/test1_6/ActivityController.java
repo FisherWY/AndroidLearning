@@ -1,4 +1,4 @@
-package com.fisher.helloandroid;
+package com.fisher.helloandroid.test1_6;
 
 import android.app.Activity;
 

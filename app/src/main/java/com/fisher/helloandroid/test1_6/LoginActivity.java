@@ -1,4 +1,4 @@
-package com.fisher.helloandroid;
+package com.fisher.helloandroid.test1_6;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.fisher.helloandroid.R;
 
 /**
  * @Author: Fisher

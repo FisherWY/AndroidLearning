@@ -1,4 +1,4 @@
-package com.fisher.helloandroid;
+package com.fisher.helloandroid.test1_6;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
+import com.fisher.helloandroid.R;
 
 public class FourthActivity extends AppCompatActivity{
     private static final String TAG = "Fourth Activity";

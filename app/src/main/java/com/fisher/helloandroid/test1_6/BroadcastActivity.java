@@ -1,4 +1,4 @@
-package com.fisher.helloandroid;
+package com.fisher.helloandroid.test1_6;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -6,6 +6,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import com.fisher.helloandroid.BuildConfig;
+import com.fisher.helloandroid.R;
 
 public class BroadcastActivity extends AppCompatActivity {
     private final String ACTION_CUSTOM_BOARDCAST = BuildConfig.APPLICATION_ID + ".ACTION_CUSTOM_BOARDCAST";

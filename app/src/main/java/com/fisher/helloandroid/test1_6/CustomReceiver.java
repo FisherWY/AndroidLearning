@@ -1,9 +1,10 @@
-package com.fisher.helloandroid;
+package com.fisher.helloandroid.test1_6;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
+import com.fisher.helloandroid.BuildConfig;
 
 public class CustomReceiver extends BroadcastReceiver {
     private final String ACTION_CUSTOM_BOARDCAST = BuildConfig.APPLICATION_ID + ".ACTION_CUSTOM_BOARDCAST";

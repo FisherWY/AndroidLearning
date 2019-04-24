@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<litepal>
+    <dbname value="BookStore"></dbname>
+    <version value="1"></version>
+
+    <list>
+        <mapping class="com.fisher.helloandroid.test7.Book"></mapping>
+    </list>
+</litepal>
