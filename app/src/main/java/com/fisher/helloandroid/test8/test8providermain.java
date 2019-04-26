@@ -1,9 +1,15 @@
-package com.fisher.helloandroid.test7;
+package com.fisher.helloandroid.test8;
+
+/**
+ * @Author Fisher
+ * @Date 2019/4/26 19:04
+ **/
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,17 +26,16 @@ import com.fisher.helloandroid.test7.MyDatabaseHelper;
  **/
 
 
-public class MyDatabaseMain extends AppCompatActivity {
+public class test8providermain extends AppCompatActivity {
 
     private static final String TAG = "MyDatabaseMain";
 
-    private MyDatabaseHelper myDatabaseHelper;
+    private String newId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mydatabasehelper_main);
-        myDatabaseHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
 
         // add data button
         Button addData = findViewById(R.id.add_data);
@@ -70,51 +75,43 @@ public class MyDatabaseMain extends AppCompatActivity {
     }
 
     private void addDataFun() {
-        SQLiteDatabase db = myDatabaseHelper.getWritableDatabase();
+        Uri uri = Uri.parse("content://com.fisher.helloworld.provider/book");
         ContentValues values = new ContentValues();
 
-        // 第一条数据
         values.put("name", "Hello");
         values.put("author", "fisher");
         values.put("pages", 454);
         values.put("price", 16.96);
-        db.insert("Book", null, values);
+        Uri newUri = getContentResolver().insert(uri, values);
         values.clear();
-
-        // 第二条数据
-        values.put("name", "World");
-        values.put("author", "yung");
-        values.put("pages", 123);
-        values.put("price", 14.32);
-        db.insert("Book", null, values);
-        values.clear();
+        newId = newUri.getPathSegments().get(1);
 
         Toast.makeText(this, "Add success", Toast.LENGTH_SHORT).show();
     }
 
     private void updateDataFun() {
-        SQLiteDatabase db = myDatabaseHelper.getWritableDatabase();
+        Uri uri = Uri.parse("content://com.fisher.helloworld.provider/book/" + newId);
         ContentValues values = new ContentValues();
 
         values.put("price", 99999);
-        db.update("Book", values, "id = ?", new String[] {"1"});
+        getContentResolver().update(uri, values, "id = ?", new String[] {"1"});
         values.clear();
 
         Toast.makeText(this, "Update success", Toast.LENGTH_SHORT).show();
     }
 
     private void deleteDataFun() {
-        SQLiteDatabase db = myDatabaseHelper.getWritableDatabase();
-        db.delete("Book", "id > ?", new String[] {"2"});
+        Uri uri = Uri.parse("content://com.fisher.helloworld.provider/book");
+        getContentResolver().delete(uri, "id > ?", new String[] {"2"});
 
         Toast.makeText(this, "Delete success", Toast.LENGTH_SHORT).show();
     }
 
     private void selectDataFun() {
-        SQLiteDatabase db = myDatabaseHelper.getWritableDatabase();
+        Uri uri = Uri.parse("content://com.fisher.helloworld.provider/book");
 
         // 查询表中所有的数据
-        Cursor cursor = db.query("Book", null, null, null, null, null, null);
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
                 // 遍历并打印
@@ -134,3 +131,4 @@ public class MyDatabaseMain extends AppCompatActivity {
         Toast.makeText(this, "Select success", Toast.LENGTH_SHORT).show();
     }
 }
+

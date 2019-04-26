@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.fisher.helloandroid">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <application
             android:name="org.litepal.LitePalApplication"
             android:allowBackup="true"
@@ -64,28 +67,55 @@
         <!-- </activity> -->
         <activity android:name=".test1_6.MainActivity">
 
-            <!--             <intent-filter> -->
-            <!--             <action android:name="android.intent.action.MAIN"/> -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
 
 
-            <!--             <category android:name="android.intent.category.LAUNCHER"/> -->
-            <!--             </intent-filter> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".test1_6.BroadcastActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN"/>-->
 
-            <!--                <category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".test1_6.LoginActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".test7.MyDatabaseMain">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".test8.test8callmain">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".test7.MyDatabaseMain">
+        <activity android:name=".test8.test8contactsmain">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".test8.test8providermain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -98,6 +128,13 @@
                 android:enabled="true"
                 android:exported="true">
         </receiver>
+
+        <provider
+                android:name=".test8.DatabaseProvider"
+                android:authorities="com.fisher.helloworld.provider"
+                android:enabled="true"
+                android:exported="true">
+        </provider>
     </application>
 
 </manifest>
