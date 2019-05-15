@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:name="org.litepal.LitePalApplication"
@@ -14,6 +15,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <service
+                android:name=".test10.DownloadService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+
         <activity android:name=".test9.NotificationActivity">
         </activity>
         <activity
@@ -126,13 +133,23 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".test9.NotificationTest">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".test9.CameraActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN"/>-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER"/>-->
 <!--            </intent-filter>-->
         </activity>
-        <activity android:name=".test9.CameraActivity">
+
+        <activity android:name=".test10.DownloadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -140,29 +157,31 @@
             </intent-filter>
         </activity>
 
+
         <receiver
                 android:name=".test1_6.CustomReceiver"
                 android:enabled="true"
                 android:exported="true">
         </receiver>
 
-<!--        <provider-->
-<!--                android:name=".test8.DatabaseProvider"-->
-<!--                android:authorities="com.fisher.helloworld.provider"-->
-<!--                android:enabled="true"-->
-<!--                android:exported="true">-->
-<!--        </provider>-->
+        <!-- 数据库provider -->
+        <!-- <provider -->
+        <!-- android:name=".test8.DatabaseProvider" -->
+        <!-- android:authorities="com.fisher.helloworld.provider" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+        <!-- </provider> -->
 
-<!--        拍照provider-->
-        <provider android:authorities="com.fisher.helloandroid.fileprovider"
-                  android:name="android.support.v4.content.FileProvider"
-                  android:exported="false"
-                  android:grantUriPermissions="true">
-                  <meta-data
-                      android:name="android.support.FILE_PROVIDER_PATHS"
-                      android:resource="@xml/file_paths"/>
+        <!-- 拍照provider -->
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.fisher.helloandroid.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths"/>
         </provider>
-
-</application>
+    </application>
 
 </manifest>
