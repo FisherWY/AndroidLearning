@@ -170,6 +170,16 @@
         </activity>
 
         <activity android:name=".test11.LocationMain">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN"/>-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity
+                android:name=".test12.MDMain"
+                android:label="实验十二">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
